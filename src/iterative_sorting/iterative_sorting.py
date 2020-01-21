@@ -9,18 +9,28 @@ def selection_sort( arr ):
         for el in range(cur_index, len(arr)):
             if arr[el] < arr[smallest_index]:
                 smallest_index = el
-        # TO-DO: swap
+        #swap for the current smallest 
         arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index]
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
-    for i in range(len(arr)):
-        for el in range(0, (len(arr)-i) - 1):
-            if arr[el] > arr [el + 1]:
-                arr[el], arr[el +1] = arr[el + 1], arr[el]
-
+    #check to see if list is sorted
+    #did we have any swaps the last time through?
+    #if no swaps then return the list
+    have_swapped = True
+    while have_swapped:
+        #set swapped to false
+        have_swapped = False
+        #do the compare/swap thing
+        #loop through the list
+        for i in range (0, len(arr) -1):
+            #is list[i] bigger than list[i + 1]?
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i+1], arr[i]
+                #if a swap happens --set swapped true
+                have_swapped = True
     return arr
 
 
